@@ -1,0 +1,19 @@
+#!/bin/sh
+echo "Init net ip...."
+if [ ! -r /mnt/ptu/common/cfg/disable_net.key ]; then
+	if [ -r /mnt/ptu/common/cfg/rc.ip ]; then
+	  ifconfig eth0 `cat /mnt/ptu/common/cfg/rc.ip`
+	  echo "eth0 is changed to " `cat /mnt/ptu/common/cfg/rc.ip`
+		if [ -r /mnt/ptu/common/cfg/gateway.ip ]; then
+			route add default netmask default gateway `cat /mnt/ptu/common/cfg/gateway.ip`   dev eth0
+			echo "eth0 is changed gateway to " `cat /mnt/ptu/common/cfg/gateway.ip`
+	  fi
+	else
+	  ifconfig eth0 192.168.10.238
+	  echo "eth0 is changed to 192.168.10.238"
+	fi
+fi
+
+		/mnt/network/udhcpc -s /mnt/network/udhcpc.script &
+
+

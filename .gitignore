@@ -26,3 +26,9 @@
 *.exe
 *.out
 *.app
+
+# svn files
+*.svn
+
+# libcurl
+curl

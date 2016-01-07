@@ -1,0 +1,25 @@
+{   
+    "iccid":"A6AB404A",                                         // 集成电路卡标识符：
+    "chargePointModel":"11",                                    // 充电站型号：
+    "chargePointVendor":"KGE",                                  // 供货商名称： 
+    "chargeBoxSerialNumber":"1012090560",                       // 充电盒(桩)序号(出厂编号)：
+    "chargePointSerialNumber":"CSN00001",                       // 充电站站点序号(用户提供)：
+    "imsi":"xxxxx",                                             // 国际移动用户标识符：
+    "meterType":"xxxxx",                                        // 电量计量器类型：
+    "firmwareVersion":"0914.0002.0002.15042115",                // 充电盒(桩)固件版本号
+    "meterSerialNumber":"xxxxx",                                // 电量计量器序号：
+    "FrameReceiveTimeOut":20000,                                // 报文接收超时时间(ms)
+    "HeartbeatInterval":10000,                                  // Heartbeat 发送间隔(ms)
+    "HeartbeatRecTimeout":5000,                                 // Heartbeat 接收超时(ms)
+    "meterValueInterval":10000,                                 // meterValue 发送间隔(ms)
+    "KGEvendorId":"KGE",                                        // KGE厂商编号
+    "UrlHead":"https://",                                       // Url的头部    
+    "UrlIsDNS":true,                                            // Url使用DNS
+    "UserServerDNS":"alpha.evchong.com",                        // 用户后台服务器域名
+    "UserServerIP":"183.131.144.74",                            // 用户后台服务器IP
+    "UserServerIPPort":8443,                                    // 用户后台服务器IP端口号
+    "StatusNotifyInterval":600,                                 // StatusNotify 发送间隔 1 min = 60 *10
+    "StatusReadedFirstCardProcTime":100,                        // ReadedFirstCard 状态处理时间 10*HeartbeatInterval=100s
+    "StatusCanChargeProcTime":100,                              // CanCharge 状态处理时间 10*HeartbeatInterval=100s
+    "StatusSwipeCardStopChargeProcTime":60                      // SwipeCardStopCharge 状态处理时间 6*HeartbeatInterval=60s
+}

@@ -1,0 +1,5 @@
+
+init_net_server	文件升级到 /mnt/ptu/common/script/	
+udhcpc					文件升级到 /mnt/network/
+udhcpc.script		文件升级到 /mnt/network/
+

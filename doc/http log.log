@@ -1,0 +1,389 @@
+
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ ./exsample_x86 
+loadLib 
+connceting to 183.131.144.74: 8080
+socket connect successful
+
+---------------------------------------------------
+POST http://183.131.144.74:8080/evchong_API/evchong/v1/deviceBoot HTTP/1.1
+
+Host:183.131.144.74:8080
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:397
+
+
+
+{"iccid":{"iccid":"112233"},"chargePointModel":{"chargePointModel":"11"},"chargePointVendor":{"chargePointVendor":"3456"},"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"123456"},"chargePointSerialNumber":{"chargePointSerialNumber":"45678"},"imsi":{"imsi":"xxxxx"},"meterType":{"meterType":"xxxxx"},"firmwareVersion":{"firmwareVersion":"xxxxx"},"meterSerialNumber":{"meterSerialNumber":"xxxxx"}}
+---------------------------------------------------
+消息发送成功，共发送了590个字节！
+接收消息成功, 共239个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:53:51 GMT
+
+
+
+47
+
+{"currentTime":1426816431540,"heartbeatInterval":5,"status":"Rejected"}
+
+0
+
+
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+POST http://183.131.144.74:8080/evchong_API/evchong/v1/heartbeat HTTP/1.1
+
+Host:183.131.144.74:8080
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:123
+
+
+
+{"chargePointSerialNumber":{"chargePointSerialNumber":"112233"},"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"33qw34"}}
+---------------------------------------------------
+消息发送成功，共发送了315个字节！
+接收消息成功, 共197个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:53:51 GMT
+
+
+
+1d
+
+{"currentTime":1426816431578}
+
+0
+
+
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+POST http://183.131.144.74:8080/evchong_API/evchong/v1/authorize HTTP/1.1
+
+Host:183.131.144.74:8080
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:91
+
+
+
+{"idToken":{"idToken":"12345"},"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"0004455"}}
+---------------------------------------------------
+消息发送成功，共发送了282个字节！
+接收消息成功, 共263个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:53:51 GMT
+
+
+
+5f
+
+{"idTagInfo":{"expiryDate":1426816431607,"parentIdTag":{"idToken":"12345"},"status":"Invalid"}}
+
+0
+
+
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+POST http://183.131.144.74:8080/evchong_API/evchong/v1/startTrans HTTP/1.1
+
+Host:183.131.144.74:8080
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:164
+
+
+
+{"idTag":{"idToken":"223344"},"connectorId":1,"meterStart":1,"reservationId":1,"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"123456"},"timestamp":1425289031076}
+---------------------------------------------------
+消息发送成功，共发送了357个字节！
+接收消息成功, 共283个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:53:51 GMT
+
+
+
+73
+
+{"idTagInfo":{"expiryDate":1426816431648,"parentIdTag":{"idToken":"223344"},"status":"Accepted"},"transactionId":1}
+
+0
+
+
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+POST http://183.131.144.74:8080/evchong_API/evchong/v1/meterValues HTTP/1.1
+
+Host:183.131.144.74:8080
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:268
+
+
+
+{"connectorId":1,"transactionId":1,"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"123456"},"values":[{"measurand":"Energy_Active_Import_Register","unit":"Wh","value":"xxxxx","location":"Outlet","context":"Sample_Periodic","format":"Raw","timestamp":1425289652130}]}
+---------------------------------------------------
+消息发送成功，共发送了462个字节！
+接收消息成功, 共213个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:53:51 GMT
+
+
+
+2d
+
+{"transactionId":1,"timestamp":1426816431688}
+
+0
+
+
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+POST http://183.131.144.74:8080/evchong_API/evchong/v1/stopTrans HTTP/1.1
+
+Host:183.131.144.74:8080
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:340
+
+
+
+{"idTag":{"idToken":"123456"},"transactionId":1,"transactionData":{"values":{"measurand":"Energy_Active_Import_Register","unit":"Wh","value":"xxxxxx","location":"Outlet","context":"Sample_Periodic","format":"Raw","timestamp":1425886218825}},"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"445566"},"meterStop":1,"timestamp":1425886218829}
+---------------------------------------------------
+消息发送成功，共发送了532个字节！
+接收消息成功, 共283个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:53:51 GMT
+
+
+
+73
+
+{"idTagInfo":{"expiryDate":1426816431727,"parentIdTag":{"idToken":"123456"},"status":"Accepted"},"transactionId":1}
+
+0
+
+
+
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+POST http://183.131.144.74:8080/evchong_API/evchong/v1/statusNotify HTTP/1.1
+
+Host:183.131.144.74:8080
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:209
+
+
+
+{"connectorId":1,"vendorErrorCode":"1122","chargeBoxSerialNumber":{"chargeBoxSerialNumber":"123456"},"errorCode":"GroundFailure","vendorId":"4455","info":"xxxxx","timestamp":1425290540330,"status":"Available"}
+---------------------------------------------------
+消息发送成功，共发送了404个字节！
+接收消息成功, 共195个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:53:51 GMT
+
+
+
+1b
+
+{"timestamp":1426816431768}
+
+0
+
+
+
+
+---------------------------------------------------
+
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ make
+gcc -Wall -Werror -fPIC -g -O2 -s -ldl -lm -o  exsample_x86  exsample.cpp -I../openssl/x86/ssl/include -L./ -lstdc++ -lhttpspost_x86
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ 
+[qinwanlin@KGE-YFZX test]$ ./exsample_x86 
+loadLib 
+connceting to 183.131.144.74: 8443
+socket connect successful
+SSL Connected with ECDHE-RSA-AES128-SHA encryption
+数字证书信息:
+证  书: /C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=183.131.144.74
+颁发者: /C=Unknown/ST=Unknown/L=Unknown/O=Unknown/OU=Unknown/CN=183.131.144.74
+
+---------------------------------------------------
+POST https://183.131.144.74:8443/evchong_API/evchong/v1/deviceBoot HTTP/1.1
+
+Host:183.131.144.74:8443
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:397
+
+
+
+{"iccid":{"iccid":"112233"},"chargePointModel":{"chargePointModel":"11"},"chargePointVendor":{"chargePointVendor":"3456"},"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"123456"},"chargePointSerialNumber":{"chargePointSerialNumber":"45678"},"imsi":{"imsi":"xxxxx"},"meterType":{"meterType":"xxxxx"},"firmwareVersion":{"firmwareVersion":"xxxxx"},"meterSerialNumber":{"meterSerialNumber":"xxxxx"}}
+---------------------------------------------------
+消息发送成功，共发送了591个字节！
+send 11111111111
+接收消息成功, 共234个字节的数据
+---------------------------------------------------
+HTTP/1.1 200 OK
+
+Server: Apache-Coyote/1.1
+
+Content-Type: application/json;charset=UTF-8
+
+Transfer-Encoding: chunked
+
+Date: Fri, 20 Mar 2015 01:56:45 GMT
+
+
+
+47
+
+{"currentTime":1426816605447,"heartbeatInterval":5,"status":"Rejected"}
+
+
+---------------------------------------------------
+
+recv 11111111111
+
+---------------------------------------------------
+POST https://183.131.144.74:8443/evchong_API/evchong/v1/heartbeat HTTP/1.1
+
+Host:183.131.144.74:8443
+
+Content-Type: application/json;charset=utf-8
+
+Connection:keep-alive
+
+Content-Length:123
+
+
+
+{"chargePointSerialNumber":{"chargePointSerialNumber":"112233"},"chargeBoxSerialNumber":{"chargeBoxSerialNumber":"33qw34"}}
+---------------------------------------------------
+消息发送成功，共发送了316个字节！
+send 2222222222222222
+接收消息成功, 共1个字节的数据
+---------------------------------------------------
+0
+---------------------------------------------------
+
+recv 22222222222222222
+[qinwanlin@KGE-YFZX test]$ 
